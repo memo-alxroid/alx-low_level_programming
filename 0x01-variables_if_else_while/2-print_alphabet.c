@@ -3,7 +3,7 @@
 /**
  * main - print the size of various types
  *
- * Description: prints the alphabet in lowercase 
+ * Description: prints the alphabet in lowercase
  *
  *
  * Return: Allways 0 (Success)
