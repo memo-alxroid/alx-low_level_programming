@@ -14,22 +14,22 @@
 int main(void)
 {
 	int firstDigit = 0;
-  int secondDigit;
+	int secondDigit;
 
 	while (firstDigit < 9)
 	{
-    secondDigit = firstDigit + 1;
-		putchar(48 + base10);
-    while (secondDigit < 10)
-      {
-        putchar(48 + base10);
-        if (firstDigit != 8 && secondDigit != 9)
-        {
-             putchar(',');
-			       putchar(' ');
-        }
-        secondDigit++;
-      }
+		secondDigit = firstDigit + 1;
+		while (secondDigit < 10)
+		{
+			putchar(48 + firstDigit);
+			putchar(48 + secondDigit);
+			if (firstDigit != 8)
+			{
+				putchar(',');
+				putchar(' ');
+			}
+			secondDigit++;
+		}
 		firstDigit++;
 	}
 	putchar('\n');
