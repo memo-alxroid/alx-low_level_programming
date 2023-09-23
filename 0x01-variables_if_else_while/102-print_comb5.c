@@ -15,24 +15,29 @@
 int main(void)
 {
 	int firstDigit = 0;
-	int secondDigit;
-	int thirdDigit;
+	int secondDigit = 0;
+	int thirdDigit = 0;
+	int fourthDigit = 1;
 
-	while (firstDigit < 8)
+	while (firstDigit < 10)
 	{
-		secondDigit = firstDigit + 1;
 		while (secondDigit < 9)
 		{
-			thirdDigit = secondDigit + 1;
 			while (thirdDigit < 10)
 			{
-				putchar(48 + firstDigit);
-				putchar(48 + secondDigit);
-				putchar(48 + thirdDigit);
-				if (firstDigit != 7)
+				while (fourthDigit < 10)
 				{
-					putchar(',');
-					putchar(' ');
+						putchar(48 + firstDigit);
+						putchar(48 + secondDigit);
+						putchar(' ');
+						putchar(48 + thirdDigit);
+						putchar(48 + fourthDigit);
+						if (secondDigit != 8)
+						{
+							putchar(',');
+							putchar(' ');
+						}
+						fourthDigit++;
 				}
 				thirdDigit++;
 			}
