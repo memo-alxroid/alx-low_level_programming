@@ -24,17 +24,17 @@ int main(void)
 		{
 			thirdDigit = secondDigit + 1;
 			while (thirdDigit < 10)
+			{
+				putchar(48 + firstDigit);
+				putchar(48 + secondDigit);
+				putchar(48 + thirdDigit);
+				if (firstDigit != 7)
 				{
-					putchar(48 + firstDigit);
-					putchar(48 + secondDigit);
-					putchar(48 + thirdDigit);
-					if (firstDigit != 7)
-					{
-						putchar(',');
-						putchar(' ');
-					}
-					thirdDigit++;
+					putchar(',');
+					putchar(' ');
 				}
+				thirdDigit++;
+			}
 			secondDigit++;
 		}
 		firstDigit++;
