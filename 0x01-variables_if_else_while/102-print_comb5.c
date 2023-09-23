@@ -14,36 +14,40 @@
 
 int main(void)
 {
-	int firstDigit = 0;
-	int secondDigit = 0;
-	int thirdDigit = 0;
-	int fourthDigit = 1;
+	int first = 0;
+	int second;
+	int third;
+	int fourth;
 
-	while (firstDigit < 10)
+	while (first < 10)
 	{
-		while (secondDigit < 9)
+		second = 0;
+		while (second < 10)
 		{
-			while (thirdDigit < 10)
+			third = first;
+			fourth = second + 1;
+			while (third < 10)
 			{
-				while (fourthDigit < 10)
+				while (fourth < 10)
 				{
-						putchar(48 + firstDigit);
-						putchar(48 + secondDigit);
+					putchar(48 + first);
+					putchar(48 + second);
+					putchar(' ');
+					putchar(48 + third);
+					putchar(48 + fourth);
+					if (first < 9 || second < 8 || third < 9 || fourth < 9)
+					{
+						putchar(',');
 						putchar(' ');
-						putchar(48 + thirdDigit);
-						putchar(48 + fourthDigit);
-						if (secondDigit != 8)
-						{
-							putchar(',');
-							putchar(' ');
-						}
-						fourthDigit++;
+					}
+					fourth++;
 				}
-				thirdDigit++;
+				fourth = 0;
+				third++;
 			}
-			secondDigit++;
+			second++;
 		}
-		firstDigit++;
+		first++;
 	}
 	putchar('\n');
 	return (0);
