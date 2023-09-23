@@ -3,7 +3,7 @@
 /**
  * main - print the size of various types
  *
- * Description: all possible combinations of single-digit numbers
+ * Description: all possible combinations of two-digit numbers
  * starting from 0
  *
  *
