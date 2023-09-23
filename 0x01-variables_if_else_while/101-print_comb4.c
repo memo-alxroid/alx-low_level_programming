@@ -3,7 +3,7 @@
 /**
  * main - print the size of various types
  *
- * Description: all possible combinations of single-digit numbers
+ * Description: all possible combinations of three-digit numbers
  * starting from 0
  *
  *
@@ -15,19 +15,26 @@ int main(void)
 {
 	int firstDigit = 0;
 	int secondDigit;
+	int thirdDigit;
 
-	while (firstDigit < 9)
+	while (firstDigit < 8)
 	{
 		secondDigit = firstDigit + 1;
-		while (secondDigit < 10)
+		while (secondDigit < 9)
 		{
-			putchar(48 + firstDigit);
-			putchar(48 + secondDigit);
-			if (firstDigit != 8)
-			{
-				putchar(',');
-				putchar(' ');
-			}
+			thirdDigit = secondDigit + 1;
+			while (thirdDigit < 10)
+				{
+					putchar(48 + firstDigit);
+					putchar(48 + secondDigit);
+					putchar(48 + thirdDigit);
+					if (firstDigit != 7)
+					{
+						putchar(',');
+						putchar(' ');
+					}
+					thirdDigit++;
+				}
 			secondDigit++;
 		}
 		firstDigit++;
