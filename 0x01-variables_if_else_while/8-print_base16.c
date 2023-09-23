@@ -14,14 +14,14 @@
 int main(void)
 {
 	int base16 = 0;
-  char alpha = 'a';
+	char alpha = 'a';
 
 	while (base16 < 10)
 	{
 		putchar(48 + base16);
 		base16++;
 	}
-  while (alpha <= 'f')
+	while (alpha <= 'f')
 	{
 		putchar(alpha);
 		alpha++;
