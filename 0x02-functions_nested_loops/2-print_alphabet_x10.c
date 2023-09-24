@@ -10,6 +10,9 @@
  *
  * Return: void
  *
+ */
+
+ /**
  * print_alphabet - prints the alphabet in lowercase
  * Description: prints the alphabet in lowercase 1 time
  * Return: void
