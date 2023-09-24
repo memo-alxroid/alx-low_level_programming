@@ -16,7 +16,6 @@ void times_table_2(int n)
 		_putchar(',');
 		_putchar(' ');
 		_putchar(' ');
-		_putchar(' ');
 		for (c = 1; c <= n; c++)
 		{
 			d = (r * c);
