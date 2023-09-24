@@ -3,13 +3,16 @@
 
 /**
  * print_alphabet_x10 - prints the alphabet in lowercase 10 times
- * print_alphabet - prints the alphabet in lowercase
+ *
  *
  * Description: prints the alphabet in lowercase 10 times
  *
  *
  * Return: void
  *
+ * print_alphabet - prints the alphabet in lowercase
+ * Description: prints the alphabet in lowercase 1 time
+ * Return: void
  */
 
 void print_alphabet(void)
