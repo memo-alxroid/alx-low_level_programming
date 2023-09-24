@@ -17,7 +17,7 @@ void times_table_2(int n)
 		for (c = 1; c <= n; c++)
 		{
 			d = (r * c);
-		if ((d / 10) > 10)
+		if ((d / 10) >= 10)
 		{
 			d = d / 10;
 			d = d / 10;
