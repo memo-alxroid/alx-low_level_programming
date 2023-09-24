@@ -32,6 +32,7 @@ void times_table_2(int n)
 		{
 			_putchar(',');
 			_putchar(' ');
+			_putchar(' ');
 		}
 	}
 		_putchar('\n');
