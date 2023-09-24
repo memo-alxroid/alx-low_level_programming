@@ -13,12 +13,12 @@
 
 int main(void)
 {
-	int i, b = 0, a = 1, c;
+	long unsigned i, b = 0, a = 1, c;
 
 	for (i = 2; i < 50; i++)
 	{
 		c = a + b;
-		printf("%d", c);
+		printf("%lu", c);
 		if (i < 49)
 		{
 			printf(", ");
