@@ -20,7 +20,6 @@ void times_table_2(int n)
 		if ((d / 10) >= 10)
 		{
 			d = d / 10;
-			d = d / 10;
 			_putchar(' ');
 			_putchar((d / 10) + '0');
 		}
