@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * main - print the size of various types
+ * print_alphabet - prints the alphabet in lowercase
  *
  * Description: prints the alphabet in lowercase
  *
@@ -11,7 +11,7 @@
  *
  */
 
-int main(void)
+void print_alphabet(void)
 {
 	char alpha = 'a';
 
