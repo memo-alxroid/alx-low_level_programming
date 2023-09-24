@@ -10,35 +10,18 @@
 
 void jack_bauer(void)
 {
-	int first = 0;
-	int second;
-	int third;
-	int fourth;
+	int i, j;
 
-	while (first < 3)
+	for (i = 0; i < 24; i++)
 	{
-		second = 0;
-		while (second < 4)
+		for (j = 0; j < 60; j++)
 		{
-			third = first;
-			fourth = second + 1;
-			while (third < 6)
-			{
-				while (fourth < 10)
-				{
-					putchar(48 + first);
-					putchar(48 + second);
-					putchar(':');
-					putchar(48 + third);
-					putchar(48 + fourth);
-					putchar('\n');
-					fourth++;
-				}
-				fourth = 0;
-				third++;
-			}
-			second++;
+			_putchar(i / 10 + 48);
+			_putchar(i % 10 + 48);
+			_putchar(':');
+			_putchar(j / 10 + 48);
+			_putchar(j % 10 + 48);
+			_putchar('\n');
 		}
-		first++;
 	}
 }
