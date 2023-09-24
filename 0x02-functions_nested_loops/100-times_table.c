@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * times_table -  a function that prints the 9 times table, starting with 0
+ * times_table_2 -  a function that prints the 9 times table, starting with 0
  * rone = row, cone = column, d = digits of current result
  * @n: the table number
  * Return: times table
@@ -38,7 +38,7 @@ void times_table_2(int n)
 }
 
 /**
- * print_times_table -  a function that prints the n times table, starting with 0
+ * print_times_table - a function that prints the n times table starting with 0
  * rone = row, cone = column, d = digits of current result
  * @n: the table number
  * Return: times table
@@ -50,6 +50,10 @@ void print_times_table(int n)
 	if (n > 15 || n < 0)
 	{
 		return;
+	}
+	if (n == 0)
+	{
+		_putchar('0');
 	}
 	times_table_2(n);
 }
