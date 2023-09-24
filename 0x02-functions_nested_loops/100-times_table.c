@@ -19,9 +19,10 @@ void times_table_2(int n)
 			d = (r * c);
 		if ((d / 10) > 0)
 		{
+			_putchar(' ');
+			_putchar(' ');
 			_putchar((d / 10) + '0');
-			_putchar(' ');
-			_putchar(' ');
+
 		}
 		else
 		{
