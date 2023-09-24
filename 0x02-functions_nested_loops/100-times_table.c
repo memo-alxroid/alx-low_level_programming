@@ -22,7 +22,7 @@ void times_table_2(int n)
 			d = d / 10;
 			_putchar(' ');
 			_putchar((d / 10) + '0');
-			_putchar((d / 10) + '0');
+			_putchar((d % 10) + '0');
 		}
 		else if ((d / 10) > 0)
 		{
