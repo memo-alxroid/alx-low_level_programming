@@ -9,9 +9,6 @@
  *
  * Return: Allways 0 (Success)
  *
- */
-
-/**
  * print_alphabet - prints the alphabet in lowercase
  *
  * Description: prints the alphabet in lowercase
@@ -35,7 +32,7 @@ void print_alphabet(void)
 
 void print_alphabet_x10(void)
 {
-  	int i = 0;
+	int i = 0;
 
   	while (i < 10)
 	{
