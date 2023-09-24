@@ -3,18 +3,12 @@
 
 /**
  * print_alphabet_x10 - prints the alphabet in lowercase 10 times
+ * print_alphabet - prints the alphabet in lowercase
  *
  * Description: prints the alphabet in lowercase 10 times
  *
  *
- * Return: Allways 0 (Success)
- *
- * print_alphabet - prints the alphabet in lowercase
- *
- * Description: prints the alphabet in lowercase
- *
- *
- * Return: Allways 0 (Success)
+ * Return: void
  *
  */
 
