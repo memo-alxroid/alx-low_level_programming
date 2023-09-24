@@ -15,11 +15,11 @@ int main(void)
 {
 	unsigned long i, b = 0, a = 1, c;
 
-	for (i = 2; i < 53; i++)
+	for (i = 2; i < 52; i++)
 	{
 		c = a + b;
 		printf("%lu", c);
-		if (i < 52)
+		if (i < 51)
 		{
 			printf(", ");
 		}
