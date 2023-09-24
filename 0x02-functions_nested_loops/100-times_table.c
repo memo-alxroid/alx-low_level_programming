@@ -26,6 +26,7 @@ void times_table_2(int n)
 		else
 		{
 			_putchar(' ');
+			_putchar(' ');
 		}
 			_putchar((d % 10) + '0');
 		if (c < n)
