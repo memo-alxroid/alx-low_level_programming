@@ -6,7 +6,7 @@
  * Return: times table
  * add extra space past single digit
  */
-void times_table(int n)
+void times_table_2(int n)
 {
 	int r, c, d;
 
@@ -51,5 +51,5 @@ void print_times_table(int n)
 	{
 		return;
 	}
-	times_table(n);
+	times_table_2(n);
 }
