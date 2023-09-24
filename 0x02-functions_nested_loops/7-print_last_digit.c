@@ -20,6 +20,6 @@ int print_last_digit(int n)
 	divisor = n / 10;
 	divisor = divisor * 10;
 	lastDigit = n - divisor;
-	_putchar(lastDigit);
+	_putchar(lastDigit + 48);
 	return (lastDigit);
 }
