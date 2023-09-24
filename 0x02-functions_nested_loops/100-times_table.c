@@ -8,7 +8,7 @@
  */
 void times_table_2(int n)
 {
-	int r, c, d;
+	int r, c, d, d2;
 
 	for (r = 0; r <= n; r++)
 	{
@@ -19,10 +19,10 @@ void times_table_2(int n)
 			d = (r * c);
 		if ((d / 10) >= 10)
 		{
-			d = d / 10;
+			d2 = d / 10;
 			_putchar(' ');
-			_putchar((d / 10) + '0');
-			_putchar((d % 10) + '0');
+			_putchar((d2 / 10) + '0');
+			_putchar((d2 % 10) + '0');
 		}
 		else if ((d / 10) > 0)
 		{
