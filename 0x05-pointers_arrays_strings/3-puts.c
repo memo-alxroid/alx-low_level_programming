@@ -12,7 +12,7 @@
 *
 */
 
-void (char *s)
+void _puts(char *s)
 {
 	if (s == NULL || *s == '\0')
 	{
