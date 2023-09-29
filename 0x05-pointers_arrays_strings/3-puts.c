@@ -3,7 +3,7 @@
 
 /**
 * _puts - prints a string, followed by a new line
-* @s: tha string to be printed
+* @str: tha string to be printed
 *
 * Description: prints a string, followed by a new line
 *
@@ -12,16 +12,16 @@
 *
 */
 
-void _puts(char *s)
+void _puts(char *str)
 {
-	if (s == NULL || *s == '\0')
+	if (str == NULL || *str == '\0')
 	{
 		return;
 	}
 
-	while (*s != '\0')
+	while (*str != '\0')
 	{
-		_putchar(*s);
-		s++;
+		_putchar(*str);
+		str++;
 	}
 }
