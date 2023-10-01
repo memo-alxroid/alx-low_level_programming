@@ -25,7 +25,7 @@ void reverse_array(int *a, int n)
 	{
 		return;
 	}
-	
+
 	while (i < (n / 2))
 	{
 		head = a[i];
