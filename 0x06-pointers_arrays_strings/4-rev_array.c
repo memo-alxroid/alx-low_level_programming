@@ -7,7 +7,7 @@
 * @a: array to be reversed
 * @n: size of the array
 *
-* Description:  a function that reverses an array 
+* Description:  a function that reverses an array
 *
 *
 * Return: void
