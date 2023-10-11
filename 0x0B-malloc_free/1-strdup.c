@@ -16,7 +16,7 @@ char *_strdup(char *str)
 	char *copyString;
 	int strSize = strlen(str);
 
-	if (str == NULL)
+	if (!str)
 	{
 		return (NULL);
 	}
