@@ -19,7 +19,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int j;
 	char *concatString;
 	int str1Size;
-	int str2Size;
 
 	if (s1 == NULL)
 	{
@@ -30,8 +29,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s2 = "";
 	}
 	str1Size = strlen(s1);
-	str2Size = strlen(s2);
-	concatString = (char *) malloc(sizeof(char) * (str1Size + str2Size + 1));
+	concatString = (char *) malloc(sizeof(char) * (str1Size + n + 1));
 	if (concatString == NULL)
 	{
 		return (NULL);
