@@ -13,20 +13,19 @@ int *array_range(int min, int max)
 {
 	int *allocatedArray;
 	int i;
-	int maxMin;
 
 	if (min > max)
 	{
 		return (NULL);
 	}
-	maxMin = max - min;
-	allocatedArray = malloc(sizeof(int) * (max - min));
+
+	allocatedArray = malloc(sizeof(int) * (max - min + 1));
 	if (allocatedArray == NULL)
 	{
 		return (NULL);
 	}
 
-	for (i = 0; i < maxMin + 1; i++)
+	for (i = 0; min <= max; i++)
 	{
 		allocatedArray[i] = min;
 		min++;
