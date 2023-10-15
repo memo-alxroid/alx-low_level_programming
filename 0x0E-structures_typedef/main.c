@@ -11,8 +11,7 @@ int main(void)
     dog_t *my_dog;
 
     my_dog = new_dog("Poppy", 3.5, "Bob");
-    printf("My name is %s, and I am %.1f and my owner name is %s :) - Woof!\n", my_dog->name, my_dog->age, my_dog->owner);
-    my_dog = new_dog("lilo", 3.5, "mina");
-    printf("My new name is %s, and I am %.1f and my new owner name is %s :) - Woof!\n", my_dog->name, my_dog->age, my_dog->owner);
+    printf("My name is %s, and I am %.1f :) - Woof!\n", my_dog->name, my_dog->age);
+    free_dog(my_dog);
     return (0);
 }
