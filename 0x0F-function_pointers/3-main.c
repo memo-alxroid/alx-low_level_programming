@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 
 	if (operation == NULL)
 	{
-		printf("Error in operation equal null\n");
+		printf("Error\n");
 		exit(99);
 	}
 
