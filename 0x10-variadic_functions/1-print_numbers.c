@@ -4,6 +4,7 @@
 /**
  * print_numbers - prints numbers, followed by a new line
  * @separator: the separator charachter
+ * @n: number of integers passed
  * Return: nothing
  */
 
