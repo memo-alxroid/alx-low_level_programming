@@ -27,7 +27,7 @@ int createOrOpen_file(const char *filename, int creatFlag)
 	}
 	else
 	{
-		fD = open(filename, O_RDONLY, 0664);
+		fD = open(filename, O_RDONLY);
 	}
 
 	if (fD == -1)
@@ -47,33 +47,31 @@ int createOrOpen_file(const char *filename, int creatFlag)
  * the POSIX standard output
  * @filename: file name string
  * @fileDiscriptor: the file Discriptor
+ * @text: buffer
  * Return: the text read from file if any
  */
 
-char *read_textFromfile(const char *filename, int fileDiscriptor)
+int read_textFromfile(const char *filename, char *text, int fileDiscriptor)
 {
-	char *text;
 	ssize_t numberOfByetsRead;
 
 	if (filename == NULL)
 	{
-		return (NULL);
+		return (-1);
 	}
 
-	text = malloc(sizeof(char) * 1024);
 	if (text == NULL)
 	{
-		return (NULL);
+		return (-1);
 	}
 
 	numberOfByetsRead = read(fileDiscriptor, text, 1024);
 	if (numberOfByetsRead == -1)
 	{
-		free(text);
-		return (NULL);
+		return (-1);
 	}
 
-	return (text);
+	return (numberOfByetsRead);
 }
 
 /**
@@ -107,7 +105,7 @@ int appendWriteTextToFile(const char *filename, char *text, int fileDiscriptor)
 		return (99);
 	}
 
-	return (1);
+	return (numberOfByetsWrite);
 }
 
 /**
@@ -145,8 +143,9 @@ int HandleErrorCodeIfExist(int fileDiscriptor, char *filename)
 
 int main(int argc, char *argv[])
 {
-	int fileDiscriptor;
-	char *fileText, *file_from, *file_to;
+	int fileDiscriptorFrom, bufferSize, fileDiscriptorTo;
+	char *file_from, *file_to;
+	char fileText[1024];
 
 	if (argc < 3)
 	{
@@ -157,27 +156,32 @@ int main(int argc, char *argv[])
 	file_from = argv[1];
 	file_to = argv[2];
 
-	fileDiscriptor = createOrOpen_file(file_from, 0);
-	fileDiscriptor = HandleErrorCodeIfExist(fileDiscriptor, file_from);
-
-	fileText = read_textFromfile(file_from, fileDiscriptor);
-	if (fileText == NULL)
+	fileDiscriptorFrom = createOrOpen_file(file_from, 0);
+	fileDiscriptorFrom = HandleErrorCodeIfExist(fileDiscriptorFrom, file_from);
+	fileDiscriptorTo = createOrOpen_file(file_to, 1);
+	fileDiscriptorTo = HandleErrorCodeIfExist(fileDiscriptorTo, file_to);
+	bufferSize = 1024;
+	while (bufferSize == 1024)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", file_from);
-		exit(98);
+		bufferSize = read_textFromfile(file_from, fileText, fileDiscriptorFrom);
+	 	if (bufferSize == -1)
+		{
+			dprintf(2, "Error: Can't read from file %s\n", file_from);
+			exit(98);
+		}
+		bufferSize = appendWriteTextToFile(file_to, fileText, fileDiscriptorTo);
+		if (bufferSize == -1)
+		{
+			dprintf(2, "Error: Can't write to %s\n", file_to);
+			exit(99);
+		}
 	}
 
-	fileDiscriptor = close(fileDiscriptor);
-	fileDiscriptor = HandleErrorCodeIfExist(fileDiscriptor, "");
+	fileDiscriptorFrom = close(fileDiscriptorFrom);
+	fileDiscriptorFrom = HandleErrorCodeIfExist(fileDiscriptorFrom, "");
 
-	fileDiscriptor = createOrOpen_file(file_to, 1);
-	fileDiscriptor = HandleErrorCodeIfExist(fileDiscriptor, file_to);
-
-	fileDiscriptor = appendWriteTextToFile(file_to, fileText, fileDiscriptor);
-	fileDiscriptor = HandleErrorCodeIfExist(fileDiscriptor, file_to);
-
-	fileDiscriptor = close(fileDiscriptor);
-	fileDiscriptor = HandleErrorCodeIfExist(fileDiscriptor, "");
+	fileDiscriptorTo = close(fileDiscriptorTo);
+	fileDiscriptorTo = HandleErrorCodeIfExist(fileDiscriptorTo, "");
 
 	return (0);
 }
