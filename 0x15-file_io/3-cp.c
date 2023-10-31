@@ -116,7 +116,7 @@ int appendWriteTextToFile(const char *filename, char *text, int fileDiscriptor)
  * Return: 1 on success, -1 on failure
  */
 
-int HandleErrorCodeIfExist(int fileDiscriptor,char *filename)
+int HandleErrorCodeIfExist(int fileDiscriptor, char *filename)
 {
 	if (fileDiscriptor == 98)
 	{
