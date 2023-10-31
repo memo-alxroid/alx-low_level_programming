@@ -89,7 +89,7 @@ int appendWriteTextToFile(const char *filename, char *text, int fileDiscriptor)
 
 	if (filename == NULL)
 	{
-		return (99);
+		return (-1);
 	}
 
 	if (text == NULL)
@@ -102,7 +102,7 @@ int appendWriteTextToFile(const char *filename, char *text, int fileDiscriptor)
 	numberOfByetsWrite = write(fileDiscriptor, text, textContentLength);
 	if (numberOfByetsWrite == -1)
 	{
-		return (99);
+		return (-1);
 	}
 
 	return (numberOfByetsWrite);
@@ -164,7 +164,7 @@ int main(int argc, char *argv[])
 	while (bufferSize == 1024)
 	{
 		bufferSize = read_textFromfile(file_from, fileText, fileDiscriptorFrom);
-	 	if (bufferSize == -1)
+		if (bufferSize == -1)
 		{
 			dprintf(2, "Error: Can't read from file %s\n", file_from);
 			exit(98);
@@ -179,7 +179,6 @@ int main(int argc, char *argv[])
 
 	fileDiscriptorFrom = close(fileDiscriptorFrom);
 	fileDiscriptorFrom = HandleErrorCodeIfExist(fileDiscriptorFrom, "");
-
 	fileDiscriptorTo = close(fileDiscriptorTo);
 	fileDiscriptorTo = HandleErrorCodeIfExist(fileDiscriptorTo, "");
 
