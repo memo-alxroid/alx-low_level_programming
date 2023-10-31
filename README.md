@@ -34,7 +34,7 @@ This repository contains programs written for the low-level programming and algo
 
 ## Author:
 
-* **Mina Sami** <[Tolulope05](https://github.com/Tolulope05)>
+* **Mina Sami** <[memo-alxroid](https://github.com/memo-alxroid)>
 
 ## Acknowledgements :pray:
 
