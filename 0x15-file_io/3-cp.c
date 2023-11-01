@@ -169,8 +169,8 @@ int main(int argc, char *argv[])
 			dprintf(2, "Error: Can't read from file %s\n", file_from);
 			exit(98);
 		}
-		bufferSize = appendWriteTextToFile(file_to, fileText, fileDiscriptorTo);
-		if (bufferSize == -1)
+		fileDiscriptorTo = appendWriteTextToFile(file_to, fileText, fileDiscriptorTo);
+		if (fileDiscriptorTo == -1)
 		{
 			dprintf(2, "Error: Can't write to %s\n", file_to);
 			exit(99);
