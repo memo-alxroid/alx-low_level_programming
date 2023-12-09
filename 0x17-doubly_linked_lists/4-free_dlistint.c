@@ -22,5 +22,4 @@ void free_dlistint(dlistint_t *head)
 		currentNode = currentNode->next;
 		free(nextNode);
 	}
-	free(currentNode);
 }
