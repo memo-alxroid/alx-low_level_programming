@@ -12,9 +12,6 @@ void free_dlistint(dlistint_t *head)
 	dlistint_t *currentNode;
 	dlistint_t *nextNode;
 
-	if (head != NULL)
-		while (head->prev != NULL)
-			head = head->prev;
 	currentNode = head;
 	while (currentNode != NULL)
 	{
