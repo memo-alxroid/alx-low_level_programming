@@ -1,85 +1,53 @@
 #include "hash_tables.h"
 
 /**
- * handleCollision - handles collision by adding node to the beginning of list
- * @ht: hash table to be updated
- * @idx: index of the key
- * @Node: node to be added
+ * hash_table_set - Add or update an element in a hash table.
+ * @ht: A pointer to the hash table.
+ * @key: The key to add - cannot be an empty string.
+ * @value: The value associated with key.
  *
- * Return: void
+ * Return: Upon failure - 0.
+ *         Otherwise - 1.
  */
-
-int handleCollision(hash_table_t *ht, unsigned long int idx, hash_node_t *Node)
-{
-	Node->next = ht->array[idx];
-	ht->array[idx] = Node;
-	return (1);
-}
-
-
-/**
- * create_Node - creates a node
- * @key: key to be added
- * @value: value to be added
- *
- * Return: pointer to the newly created node
- */
-
-hash_node_t* create_Node(char* key, char* value)
-{
-	hash_node_t *newNode = NULL;
-	if (key == NULL)
-		return (NULL);
-
-	newNode = malloc(sizeof(hash_node_t));
-	if (newNode == NULL)
-		return (NULL);
-	newNode->key = strdup(key);
-	newNode->value = strdup(value);
-	return (newNode);
-}
-
-/**
- * hash_table_set - adds an element to the hash table
- * @ht: hash table to be updated
- * @key: key to be added
- * @value: value to be added
- *
- * Return: 1 if successful, 0 otherwise
- */
-
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *newNode, *currentNode;
-	unsigned long int keyIndex;
+	hash_node_t *new;
+	char *value_copy;
+	unsigned long int index, i;
 
-	if (ht == NULL)
+	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
 		return (0);
-	keyIndex = key_index((const unsigned char *)key, ht->size);
 
-	newNode = create_Node((char *)key, (char *)value);
-
-	if (newNode == NULL)
+	value_copy = strdup(value);
+	if (value_copy == NULL)
 		return (0);
-	currentNode = ht->array[keyIndex];
-	if (currentNode == NULL)
+
+	index = key_index((const unsigned char *)key, ht->size);
+	for (i = index; ht->array[i]; i++)
 	{
-		newNode->next = ht->array[keyIndex];
-		ht->array[keyIndex] = newNode;
-		return (1);
-	}
-	else
-	{
-		if (strcmp(currentNode->key, key) == 0)
+		if (strcmp(ht->array[i]->key, key) == 0)
 		{
-			free(ht->array[keyIndex]->value);
-			ht->array[keyIndex]->value = strdup(value);
-			return (1);
-		}
-		else
-		{
-			handleCollision(ht, keyIndex, newNode);
+			free(ht->array[i]->value);
+			ht->array[i]->value = value_copy;
 			return (1);
 		}
 	}
+
+	new = malloc(sizeof(hash_node_t));
+	if (new == NULL)
+	{
+		free(value_copy);
+		return (0);
+	}
+	new->key = strdup(key);
+	if (new->key == NULL)
+	{
+		free(new);
+		return (0);
+	}
+	new->value = value_copy;
+	new->next = ht->array[index];
+	ht->array[index] = new;
+
+	return (1);
 }
