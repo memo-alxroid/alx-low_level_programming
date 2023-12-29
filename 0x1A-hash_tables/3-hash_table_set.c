@@ -9,10 +9,10 @@
  * Return: 1
  */
 
-int handleCollision(hash_table_t *ht, unsigned long int index, hash_node_t *nwNode)
+int handleCollision(hash_table_t *ht, unsigned long int idx, hash_node_t *Node)
 {
-	nwNode->next = ht->array[index];
-	ht->array[index] = nwNode;
+	Node->next = ht->array[idx];
+	ht->array[idx] = Node;
 	return (1);
 }
 
