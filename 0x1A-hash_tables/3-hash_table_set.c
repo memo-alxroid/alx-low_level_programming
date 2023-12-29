@@ -1,23 +1,6 @@
 #include "hash_tables.h"
 
 /**
- * handleCollision - handles collision by adding node to the beginning of list
- * @ht: hash table to be updated
- * @idx: index of the key
- * @Node: node to be added
- *
- * Return: 1
- */
-
-int handleCollision(hash_table_t *ht, unsigned long int idx, hash_node_t *Node)
-{
-	Node->next = ht->array[idx];
-	ht->array[idx] = Node;
-	return (1);
-}
-
-
-/**
  * create_Node - creates a node
  * @key: key to be added
  * @value: value to be added
@@ -25,10 +8,9 @@ int handleCollision(hash_table_t *ht, unsigned long int idx, hash_node_t *Node)
  * Return: pointer to the newly created node
  */
 
-hash_node_t *create_Node(char *key, char *value)
+hash_node_t* create_Node(char* key, char* value)
 {
 	hash_node_t *newNode = NULL;
-
 	if (key == NULL)
 		return (NULL);
 
@@ -52,7 +34,7 @@ hash_node_t *create_Node(char *key, char *value)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t *newNode, *currentNode;
-	unsigned long int keyIndex;
+	unsigned long int keyIndex, i;
 
 	if (ht == NULL)
 		return (0);
@@ -63,8 +45,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	keyIndex = key_index((const unsigned char *)key, ht->size);
 
-	currentNode = ht->array[keyIndex];
+	for (i = keyIndex; ht->array[i]; i++)
+	{
+		if (strcmp(ht->array[i]->key, key) == 0)
+		{
+			free(ht->array[i]->value);
+			ht->array[i]->value = strdup(value);
+			return (1);
+		}
+	}
 
+	currentNode = ht->array[keyIndex];
 	if (currentNode == NULL)
 	{
 		ht->array[keyIndex] = newNode;
@@ -80,10 +71,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		else
 		{
-			handleCollision(ht, keyIndex, newNode);
+			free(newNode->key);
+			free(newNode->value);
+			free(newNode);
 			return (1);
 		}
 	}
-
-	return (0);
 }
