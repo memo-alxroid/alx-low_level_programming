@@ -51,7 +51,7 @@ hash_node_t* create_Node(char* key, char* value)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t *newNode, *currentNode;
-	unsigned long int keyIndex, i;
+	unsigned long int keyIndex;
 
 	if (ht == NULL)
 		return (0);
