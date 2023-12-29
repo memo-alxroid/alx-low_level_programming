@@ -3,8 +3,8 @@
 /**
  * handleCollision - handles collision by adding node to the beginning of list
  * @ht: hash table to be updated
- * @index: index of the key
- * @nwNode: node to be added
+ * @idx: index of the key
+ * @Node: node to be added
  *
  * Return: 1
  */
