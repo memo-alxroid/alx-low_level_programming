@@ -1,6 +1,23 @@
 #include "hash_tables.h"
 
 /**
+ * handleCollision - handles collision by adding node to the beginning of list
+ * @ht: hash table to be updated
+ * @idx: index of the key
+ * @Node: node to be added
+ *
+ * Return: void
+ */
+
+int handleCollision(hash_table_t *ht, unsigned long int idx, hash_node_t *Node)
+{
+	Node->next = ht->array[idx];
+	ht->array[idx] = Node;
+	return (1);
+}
+
+
+/**
  * create_Node - creates a node
  * @key: key to be added
  * @value: value to be added
@@ -71,9 +88,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		else
 		{
-			free(newNode->key);
-			free(newNode->value);
-			free(newNode);
+			handleCollision(ht, keyIndex, newNode);
 			return (1);
 		}
 	}
